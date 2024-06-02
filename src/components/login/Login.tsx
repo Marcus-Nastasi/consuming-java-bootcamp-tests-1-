@@ -11,16 +11,14 @@ export default function Login() {
       const options: object = {
          method: "POST",
          body: JSON.stringify({ id: input.value }),
-         header: new Headers({ "Content-Type": "application/json" })
+         headers: new Headers({ 'content-type': 'application/json' })
       };
 
       try {
          const req: Response = await fetch(url, options);
-         const tk: string = await req.json();
-
+         const tk: string = await req.text();
+         document.cookie = `token=${tk}`;
          setToken(tk);
-
-         console.log(token);
       } catch(e) {
          console.log(e);
       }
