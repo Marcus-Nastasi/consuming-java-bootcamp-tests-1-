@@ -2,6 +2,7 @@ import AddTodo from "./components/addTodo/AddTodo";
 import GetAll from "./components/getAll/GetAll";
 import GetSingle from "./components/getSingle/GetSingle";
 import Login from "./components/login/Login";
+import Update from "./components/update/Update";
 
 export default function App() {
    return(
@@ -20,6 +21,7 @@ export default function App() {
          {/* <GetAll /> */}
          {/* <GetSingle /> */}
          {/* <AddTodo /> */}
+         <Update />
       </>
    );
 };
