@@ -1,3 +1,4 @@
+import GetAll from "./components/getAll/GetAll";
 import Login from "./components/login/Login";
 
 export default function App() {
@@ -13,7 +14,8 @@ export default function App() {
             </ul>
          </section>
 
-         <Login />
+         {/* <Login /> */}
+         <GetAll />
       </>
    );
 };
