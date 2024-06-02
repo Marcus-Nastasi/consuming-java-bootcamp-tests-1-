@@ -1,3 +1,4 @@
+import AddTodo from "./components/addTodo/AddTodo";
 import GetAll from "./components/getAll/GetAll";
 import GetSingle from "./components/getSingle/GetSingle";
 import Login from "./components/login/Login";
@@ -17,7 +18,8 @@ export default function App() {
 
          {/* <Login /> */}
          {/* <GetAll /> */}
-         <GetSingle />
+         {/* <GetSingle /> */}
+         {/* <AddTodo /> */}
       </>
    );
 };
