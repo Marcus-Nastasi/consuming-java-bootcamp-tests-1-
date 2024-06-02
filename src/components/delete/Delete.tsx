@@ -1,17 +1,15 @@
-export default function Update() {
+export default function Delete() {
 
    async function get(): Promise<void> {
       const tk = document.cookie.split('=')[1];
 
       const inpId: any = document.getElementById('id');
-      const inpDesc: any = document.getElementById('desc');
 
       try {
-         const url: string = `http://localhost:8080/api/todos/update/${inpId.value}`;
+         const url: string = `http://localhost:8080/api/todos/delete/${inpId.value}`;
          const options: object = {
-            method: "put",
-            body: JSON.stringify({id: inpId.value, description: inpDesc.value }),
-            headers: new Headers({ 'Authorization': `Bearer ${tk}`, 'content-type': 'application/json' })
+            method: "delete",
+            headers: new Headers({ 'Authorization': `Bearer ${tk}` })
          };
 
          const res: Response = await fetch(url, options);
@@ -33,11 +31,8 @@ export default function Update() {
                      <label htmlFor="id">ID</label>
                      <input type="text" name="id" id="id" />
 
-                     <label htmlFor="desc">Description</label>
-                     <input type="text" name="desc" id="desc" />
-
                      <button onClick={get}>
-                        Update
+                        Delete
                      </button>
 
                   </section>
