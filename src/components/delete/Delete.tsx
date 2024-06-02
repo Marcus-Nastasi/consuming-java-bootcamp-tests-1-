@@ -13,9 +13,8 @@ export default function Delete() {
          };
 
          const res: Response = await fetch(url, options);
-
-         console.log(res);
          
+         console.log(res);
       } catch(e) {
          console.log(e);
       }
