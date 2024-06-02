@@ -1,4 +1,31 @@
+import { useState } from "react";
+
 export default function Login() {
+   const [ token, setToken ] = useState<String>("");
+
+   async function getToken(e: any) {
+      e.preventDefault();
+
+      const input: any = document.getElementById('loginId'); 
+      const url: string = `http://localhost:8080/auth/login`;
+      const options: object = {
+         method: "POST",
+         body: JSON.stringify({ id: input.value }),
+         header: new Headers({ "Content-Type": "application/json" })
+      };
+
+      try {
+         const req: Response = await fetch(url, options);
+         const tk: string = await req.json();
+
+         setToken(tk);
+
+         console.log(token);
+      } catch(e) {
+         console.log(e);
+      }
+   }
+
    return(
       <>
          <section style={sectionOne}>
@@ -8,7 +35,7 @@ export default function Login() {
                   <form action=""  style={login}>
                      <label htmlFor="loginId">id</label>
                      <input type="text" name="id" id="loginId" />
-                     <button type="submit">enviar</button>
+                     <button type="submit" onClick={getToken}>enviar</button>
                   </form>
 
                </section>

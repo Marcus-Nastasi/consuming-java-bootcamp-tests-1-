@@ -1,13 +1,24 @@
 import Login from "./components/login/Login";
 
-function App() {
+export default function App() {
    return(
       <>
+         <section>
+            <ul>
+               <li>login</li>
+               <li>get all tasks</li>
+               <li>get single task</li>
+               <li>add</li>
+               <li>delete</li>
+            </ul>
+         </section>
+
          <Login />
       </>
    );
-}
+};
 
-export default App
+
+
 
 
