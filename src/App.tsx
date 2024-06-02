@@ -1,4 +1,5 @@
 import GetAll from "./components/getAll/GetAll";
+import GetSingle from "./components/getSingle/GetSingle";
 import Login from "./components/login/Login";
 
 export default function App() {
@@ -15,7 +16,8 @@ export default function App() {
          </section>
 
          {/* <Login /> */}
-         <GetAll />
+         {/* <GetAll /> */}
+         <GetSingle />
       </>
    );
 };

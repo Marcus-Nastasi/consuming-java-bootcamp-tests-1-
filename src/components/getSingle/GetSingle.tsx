@@ -1,24 +1,26 @@
 import { useState } from "react";
 import Todo from "../../interface/Todo";
 
-export default function GetAll() {
-   const [ todos, setTodos ] = useState<Array<Todo>>([]);
+export default function GetSingle() {
+   const [ todos, setTodos ] = useState<Todo>();
 
    async function get(): Promise<void> {
       const tk = document.cookie.split('=')[1];
 
+      const inp: any = document.getElementById('singleId');
+
       try {
          
-         const url: string = 'http://localhost:8080/api/todos';
+         const url: string = `http://localhost:8080/api/todos/${inp.value}`;
          const options: object = {
             method: "get",
             headers: new Headers({ 'Authorization': `Bearer ${tk}` })
          };
 
          const res: Response = await fetch(url, options);
-         const todos: Array<Todo> = await res.json();
+         const todo: Todo = await res.json();
 
-         setTodos(todos);
+         setTodos(todo);
       } catch(e) {
          console.log(e);
       }
@@ -31,15 +33,14 @@ export default function GetAll() {
                <section style={sectionTwo}>
                   <section style={sectionThree}>
 
+                     <label htmlFor="singleId">ID</label>
+                     <input type="text" name="id" id="singleId" />
+
                      <button onClick={get}>
-                        GET
+                        GET SINGLE
                      </button>
 
-                     {
-                        todos.map(todo => {
-                           return <p key={Number(todo.id)}> {String(todo.description)} </p>
-                        })
-                     }
+                     { todos ? String(todos?.description) : "" }
 
                   </section>
                </section>
