@@ -6,6 +6,8 @@ export default function Login() {
    async function getToken(e: any) {
       e.preventDefault();
 
+      document.cookie = `token=`;
+
       const input: any = document.getElementById('loginId'); 
       const url: string = `http://localhost:8080/auth/login`;
       const options: object = {
@@ -17,7 +19,9 @@ export default function Login() {
       try {
          const req: Response = await fetch(url, options);
          const tk: string = await req.text();
+
          document.cookie = `token=${tk}`;
+         
          setToken(tk);
       } catch(e) {
          console.log(e);
