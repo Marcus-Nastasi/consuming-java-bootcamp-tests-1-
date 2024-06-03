@@ -1,7 +1,4 @@
-import { useState } from "react";
-
 export default function Login() {
-   const [ token, setToken ] = useState<String>("");
 
    async function getToken(e: any) {
       e.preventDefault();
@@ -19,10 +16,7 @@ export default function Login() {
       try {
          const req: Response = await fetch(url, options);
          const tk: string = await req.text();
-
          document.cookie = `token=${tk}`;
-         
-         setToken(tk);
       } catch(e) {
          console.log(e);
       }
