@@ -1,9 +1,4 @@
-import { useState } from "react";
-import Todo from "../../interface/Todo";
-
 export default function AddTodo() {
-   const [ todos, setTodos ] = useState<Todo>();
-
    async function get(): Promise<void> {
       const tk = document.cookie.split('=')[1];
 
